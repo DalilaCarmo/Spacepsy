@@ -1,0 +1,185 @@
+.container {
+    position: relative;
+}
+  
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 78%;
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeOut 10s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    80% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.flashes li {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+select {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 12px;
+    color: rgb(36, 148, 162);
+    margin-right: 3px;
+}
+
+form select {
+    padding: 4px;
+    max-height: 40px;
+    overflow-y: auto;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+#year {
+    margin-right: 5px;
+    width: 60px;
+}
+
+#month {
+    margin-right: 5px;
+    width: 88px;
+}
+
+form button {
+    padding: 6.4px;
+    width: 24%;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(36, 148, 162);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.calendar {
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.calendar th {
+    background-color: rgb(36, 148, 162);
+    color: #fff;
+    padding: 3.2px;
+    text-align: center;
+    border: none;
+    font-size: 12px;
+}
+
+.calendar td {
+    background-color: #fff;
+    border: 1px solid #ffffff;
+}
+
+.calendar td a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 3.2px;
+    border-radius: 3.2px; 
+    font-size: 12px;
+}
+
+.calendar td a:hover {
+    background-color: rgb(36, 148, 162, 0.6);
+    color: #fff;
+}
+
+.session-list {
+    background-color: #ecebeb;
+    height: 155px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.session-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.session-list table tr {
+    cursor: pointer;
+}
+
+.session-list table tr:hover {
+    background-color: rgba(245, 245, 245, 0.788);
+}
+
+.session-list td {
+    padding: 7px;
+    font-size: 13px;
+    width: 100%;
+    text-align: left;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px;
+    width: 40%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(36, 148, 162);
+    color: #fff;
+    font-size: 12.8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: rgb(25, 105, 115);
+}

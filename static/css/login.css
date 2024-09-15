@@ -1,0 +1,100 @@
+header img {
+    width: 100%;
+    max-width: 304px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+form input {
+    width: 70%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 13px;
+    color: rgb(102, 102, 102);  
+    outline: none;  
+}
+
+form input::placeholder {
+    color: rgb(153, 153, 153);
+}
+
+.login-button,
+.register-button {
+    display: inline-block;
+    width: 50%;
+    margin-top: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(36, 148, 162);
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.register-button:hover {
+    background-color: rgb(25, 105, 115);
+}
+
+.forgot-password {
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(36, 148, 162);
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.register {
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(36, 148, 162);
+    margin-top: 80px;
+}
+
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 16px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.flash-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: fadeOut 10s ease-out forwards;
+    font-size: 13px;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    80% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

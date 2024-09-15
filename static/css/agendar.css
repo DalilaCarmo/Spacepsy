@@ -1,0 +1,103 @@
+.container {
+    position: relative;
+}
+  
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 78%;
+    position: absolute;
+    top: 13.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeOut 10s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    80% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.flashes li {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+label {
+    display: block;
+    font-size: 11.2px;
+    font-weight: bold;
+    color: #979797;
+    margin-bottom: 4px;
+    text-align: left;
+    padding-left: 1.6px;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12.8px;
+    color: rgb(102, 102, 102);
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin-bottom: 7px;
+}
+
+textarea {
+    height: 104px;
+    resize: none;
+}
+
+.button-group {
+    display: flex;
+}
+
+.submit-button,
+.back-button {
+    margin: 0 12px;
+    padding: 0;
+    flex: 1;
+    line-height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(36, 148, 162);
+    color: #fff; 
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.submit-button,
+.back-button {
+    background-color: rgb(36, 148, 162);
+}
+
+.submit-button:hover, .back-button:hover {
+    background-color: rgb(25, 105, 115);
+}

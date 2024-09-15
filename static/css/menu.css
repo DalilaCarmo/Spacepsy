@@ -1,0 +1,122 @@
+.container {
+    position: relative;
+    padding-top: 104px;
+}
+
+header {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    border-radius: 6px 6px 0 0;
+}
+
+header img {
+    background-color: rgb(36, 148, 162);
+    width: 100%;
+    height: auto;
+    border-radius: 6px 6px 0 0;
+}
+
+.info-psi {
+    text-align: center;
+}
+
+.info-psi .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(36, 148, 162);
+    margin-bottom: 4px;
+}
+
+.info-psi p {
+    margin: 4px 0;
+    color: #333333;
+    font-size: 12px;
+}
+
+.menu-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto; 
+    column-gap: 0px;
+    row-gap: 8px;
+    margin-top: 28px;
+    margin-bottom: 24px;
+    margin-left: 15px;
+    margin-right: 15px;
+    align-content: center;
+    justify-items: center;
+}
+
+.single-button {
+    grid-column: span 2;
+    display: flex;
+    align-content: center;
+    justify-items: center;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 92px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center; 
+    word-wrap: break-word;
+    transition: background-color 0.3s;
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-button img {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+}
+
+.menu-button.cad-cliente img {
+    width: 34px;
+    height: 44px;
+}
+
+.menu-button.cad-cliente,
+.menu-button.sessao {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.menu-button:hover {
+    background-color: rgba(36, 148, 162, 0.16);
+}
+
+.logout-button {
+    display: inline-block;
+    width: 25%; 
+    padding: 7px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(36, 148, 162);
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: rgb(25, 105, 115);
+}
