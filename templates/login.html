@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/modal.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/titleblue.png') }}" alt="Logo">
+        </header>
+        <form method="POST" action="{{ url_for('login') }}" autocomplete="off">
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+            <button class="login-button" type="submit">Entrar</button>
+            <p class="forgot-password" id="forgotPasswordLink">Esqueceu sua senha?</p>
+        </form>
+        
+        <div class="footer-link">
+            <p class="register">Ainda não tem cadastro?</p>
+            <a class="register-button" href="{{ url_for('cadastro_usuario') }}">Cadastre-se</a>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+        
+    </div>
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Recuperar senha</h2>
+            <form id="passwordRecoveryForm" autocomplete="off">
+                <input type="email" id="email_modal" name="email" placeholder="Digite seu e-mail" required>
+                <button type="submit">Enviar Recuperação</button>
+            </form>
+            <div class="container-message">
+                <div id="developmentMessage">
+                    Funcionalidade ainda em desenvolvimento.
+                </div>
+            </div>          
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("passwordModal");
+        var btn = document.getElementById("forgotPasswordLink");
+        var span = document.getElementsByClassName("close")[0];
+        var form = document.getElementById("passwordRecoveryForm");
+        var message = document.getElementById("developmentMessage");
+
+        btn.onclick = function() {
+            modal.style.display = "block";}
+
+        span.onclick = function() {
+            modal.style.display = "none";}
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";}}
+
+        form.onsubmit = function(event) {
+            event.preventDefault();
+            message.style.display = "block";}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de cliente</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cadastro_cliente.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>CLIENTES</h2>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('cadastro_cliente') }}" autocomplete="off">
+            <input type="text" id="nome_completo" name="nome_completo" placeholder="Nome completo" required>
+            <input type="text" id="data_nascimento" name="data_nascimento" placeholder="Data de nascimento" required>
+            <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
+            <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+            <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <input type="text" id="profissao" name="profissao" placeholder="Profissão">
+            <input type="text" id="contato" name="contato" placeholder="Contato de emergência" required>
+            <div class="button-group">
+                <a class="back-button" href="{{ url_for('menu') }}">Voltar</a>
+                <button type="reset">Limpar</button>
+                <button type="submit" action="cadastro_cliente">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

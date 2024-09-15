@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de usuário</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cadastro_usuario.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>CADASTRE-SE</h2>
+        </header>
+        <form method="POST" action="{{ url_for('cadastro_usuario') }}" autocomplete="off">
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <input type="text" id="telefone" name="telefone" placeholder="Telefone">
+            <input type="text" id="crp" name="crp" placeholder="CRP" required>
+            <input type="password" id="senha" name="senha" placeholder="Cadastre uma senha" required>
+            <input type="password" id="repete-senha" name="repete_senha" placeholder="Repita sua senha" required> 
+            <div class="button-group">
+                <a class="back-button" href="{{ url_for('login') }}">Voltar</a>
+                <button type="reset">Limpar</button>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

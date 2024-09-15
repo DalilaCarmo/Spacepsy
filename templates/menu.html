@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/menu.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/titlewhite.png') }}" alt="Logo">
+        </header>
+        <div class="info-psi">
+            <p class="name">{{ nome_psi }}</p>
+            <p>Psicóloga</p>
+            <p>CRP {{ crp }}</p>
+        </div>
+        <div class="menu-buttons">
+            <a href="{{ url_for('cadastro_cliente') }}" class="menu-button cad-cliente">
+                <img src="{{ url_for('static', filename='icons/register.png') }}" alt="Cadastrar cliente">
+                Cadastrar<br>cliente
+            </a>
+            <a href="{{ url_for('clientes') }}" class="menu-button">
+                <img src="{{ url_for('static', filename='icons/clients.png') }}" alt="Clientes">
+                Clientes
+            </a>
+            <a href="{{ url_for('agendar') }}" class="menu-button sessao">
+                <img src="{{ url_for('static', filename='icons/schedule.png') }}" alt="Agendar sessão">
+                Agendar<br>sessão
+            </a>
+            <a href="{{ url_for('agenda') }}" class="menu-button">
+                <img src="{{ url_for('static', filename='icons/calendar.png') }}" alt="Agenda">
+                Agenda
+            </a>
+            <div class="single-button">
+                <a href="{{ url_for('relatorios') }}" class="menu-button">
+                    <img src="{{ url_for('static', filename='icons/reports.png') }}" alt="Relatórios">
+                    Relatórios
+                </a>
+            </div>
+        </div>
+        <div class="footer-link">
+            <a class="logout-button" href="{{ url_for('login') }}">Sair</a>
+        </div>
+    </div>
+</body>
+</html>

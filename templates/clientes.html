@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de clientes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/clientes.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>CLIENTES</h2>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="GET" action="{{ url_for('clientes') }}" autocomplete="off">
+            <div class="input-container">
+                <input type="text" id="busca" name="busca" class="input" placeholder="Buscar cliente">
+                <button type="submit" class="search-button">
+                    <img src="{{ url_for('static', filename='icons/search.png') }}" alt="Search Icon" />
+                </button>
+            </div>
+        </form>
+        <div class="client-list">
+            <ul>
+                {% for cliente in clientes %}
+                <li><a href="{{ url_for('editar_cliente', id_cliente=cliente[0]) }}">{{ cliente[1] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="button-group">
+            <a class="back-button" href="{{ url_for('menu') }}">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

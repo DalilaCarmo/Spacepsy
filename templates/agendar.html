@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agendar Sessão</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agendar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>AGENDAR SESSÃO</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" autocomplete="off">
+            <label for="cliente_sessao">Cliente</label>
+            <select id="cliente_sessao" name="cliente_sessao" class="input" required>
+                {% for cliente in clientes %}
+                <option value="{{ cliente[0] }}">{{ cliente[0] }}</option>
+                {% endfor %}
+            </select>
+            <label for="data_sessao">Data</label>
+            <input type="date" id="data_sessao" name="data_sessao" class="input" required>
+            <label for="hora_sessao">Hora</label>
+            <input type="time" id="hora_sessao" name="hora_sessao" class="input" required>
+            <label for="valor">Valor</label>
+            <input type="text" id="valor" name="valor" class="input" required>
+            <label for="observacao">Observações</label>
+            <textarea id="observacao" name="observacao" class="input"></textarea>
+            <div class="button-group">
+                <a href="{{ url_for('menu') }}" class="back-button">Voltar</a>
+                <button type="submit" class="submit-button">Agendar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

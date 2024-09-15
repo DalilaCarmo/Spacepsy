@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agenda</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agenda.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>AGENDA</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="get" action="{{ url_for('agenda') }}">
+            <label for="year">Ano:</label>
+            <select id="year" name="year">
+                {% for y in range(2023, 2031) %} 
+                <option value="{{ y }}" {% if y == year %}selected{% endif %}>{{ y }}</option>
+                {% endfor %}
+            </select>
+            <label for="month">Mês:</label>
+            <select id="month" name="month">
+                {% set months = {
+                    1: 'Janeiro', 2: 'Fevereiro', 3: 'Março', 4: 'Abril', 5: 'Maio', 6: 'Junho',
+                    7: 'Julho', 8: 'Agosto', 9: 'Setembro', 10: 'Outubro', 11: 'Novembro', 12: 'Dezembro'
+                } %}
+                {% for m in range(1, 13) %}
+                <option value="{{ m }}" {% if m == month %}selected{% endif %}>{{ months[m] }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Atualizar</button>
+        </form>
+        <div class="calendar">
+            {{ calendar|safe }}
+        </div>
+        <div class="session-list">
+            <table>
+                <tbody>
+                    {% for sessao in sessoes %}
+                    <tr data-url="{{ url_for('editar_sessao', id_sessao=sessao[0]) }}">
+                        <td>{{ sessao[1] }}</td>
+                        <td>{{ sessao[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <script>
+            document.querySelectorAll('.session-list tr').forEach(function(row) {
+                row.addEventListener('click', function() {
+                    var url = this.getAttribute('data-url');
+                    if (url) {
+                        window.location.href = url;
+                    }
+                });
+            });
+        </script>
+        <div class="button-group">
+            <a class="back-button" href="{{ url_for('menu') }}">Voltar</a>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.calendar a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var selectedDate = this.getAttribute('data-date');
+                window.location.href = "{{ url_for('agenda') }}?data=" + selectedDate + "&year={{ year }}&month={{ month }}";
+            });
+        });
+    </script>
+</body>
+</html>
